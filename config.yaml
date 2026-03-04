@@ -10,6 +10,8 @@ keywords:
   - Anvisa
   - FDA
 
+# RSS diretos: idealmente, use URLs que sejam feeds RSS "de verdade".
+# Alguns URLs abaixo podem ser páginas que listam feeds; se não vier item, troque pelo feed específico.
 rss_sources:
   - name: GenomeWeb
     url: https://www.genomeweb.com/rss-feeds
@@ -67,8 +69,36 @@ stocks:
     - TMO    # Thermo Fisher
 
 limits:
+  # Quantos itens totais entram no ranking final
   max_items_total: 25
+
+  # Quantos itens vão para o resumo com IA (se ai.enabled=true)
   max_items_for_gemini: 15
+
+  # (opcional) Limite por fonte antes do ranking (evita Google News dominar)
+  # Seu código atual ainda não usa isso, mas fica pronto para o próximo passo.
+  max_per_source: 12
+
+  # (opcional) Quantos links vão no Telegram (se você decidir ler do config depois)
+  telegram_links: 20
+
 ai:
   enabled: false
   model: gemini-2.0-flash
+
+# (opcional) Lista de empresas para "boost" no ranking (quando você quiser refinar o score)
+# Seu código atual ainda não usa isso.
+watchlist:
+  companies:
+    - Roche
+    - Abbott
+    - Danaher
+    - Beckman Coulter
+    - bioMérieux
+    - Thermo Fisher
+    - Illumina
+    - Siemens Healthineers
+    - QuidelOrtho
+    - BD
+    - IDEXX
+    - Zoetis
