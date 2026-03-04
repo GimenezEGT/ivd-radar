@@ -7,6 +7,7 @@ import time
 import feedparser
 import requests
 from dateutil import parser as dtparser
+from urllib.parse import quote_plus
 
 NCBI_EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 
@@ -132,3 +133,76 @@ def collect_pubmed(queries: List[dict], days: int = 7) -> List["Item"]:
         pmids = pubmed_esearch(q["query"], days=days, retmax=25)
         all_items.extend(pubmed_esummary(pmids, batch_size=10))
     return all_items
+
+def collect_google_news_rss(news_queries: List[dict]) -> List[Item]:
+    """
+    Coleta notícias via Google News RSS Search.
+    Exemplo de formato: https://news.google.com/rss/search?q=<query>&hl=pt-BR&gl=BR&ceid=BR:pt-419
+    """
+    items: List[Item] = []
+    base = "https://news.google.com/rss/search?q="
+
+    for nq in news_queries:
+        q = quote_plus(nq["q"])
+        hl = nq.get("hl", "pt-BR")
+        gl = nq.get("gl", "BR")
+        ceid = nq.get("ceid", "BR:pt-419")
+        url = f"{base}{q}&hl={hl}&gl={gl}&ceid={ceid}"
+
+        feed = feedparser.parse(url)
+        for e in feed.entries[:80]:
+            title = getattr(e, "title", "").strip()
+            link = getattr(e, "link", "").strip()
+            if not title or not link:
+                continue
+            published = _parse_date(getattr(e, "published", None) or getattr(e, "updated", None))
+            summary = getattr(e, "summary", None)
+            items.append(Item(
+                title=title,
+                url=link,
+                source=f"Google News: {nq.get('name','Search')}",
+                published=published,
+                summary=summary,
+            ))
+    return items
+
+def collect_stocks_weekly(symbols: List[str]) -> List[Item]:
+    """
+    Busca série semanal (Weekly) via Alpha Vantage e gera itens tipo "Ticker: variação semanal".
+    Requer env ALPHAVANTAGE_API_KEY.
+    """
+    api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
+    if not api_key or not symbols:
+        return []
+
+    out: List[Item] = []
+    base = "https://www.alphavantage.co/query"
+    for sym in symbols:
+        params = {
+            "function": "TIME_SERIES_WEEKLY_ADJUSTED",
+            "symbol": sym,
+            "apikey": api_key,
+        }
+        r = _get_with_retry(base, params=params, timeout=30, max_tries=5)
+        data = r.json()
+
+        series = data.get("Weekly Adjusted Time Series") or data.get("Weekly Time Series")
+        if not series:
+            continue
+
+        # pega as 2 semanas mais recentes
+        dates = sorted(series.keys(), reverse=True)
+        if len(dates) < 2:
+            continue
+
+        d0, d1 = dates[0], dates[1]
+        c0 = float(series[d0].get("5. adjusted close") or series[d0].get("4. close"))
+        c1 = float(series[d1].get("5. adjusted close") or series[d1].get("4. close"))
+        pct = ((c0 - c1) / c1) * 100.0
+
+        title = f"Ações Saúde: {sym} fechou {c0:.2f} ({pct:+.2f}% na semana)"
+        url = f"https://www.alphavantage.co/documentation/"  # doc do provedor
+        out.append(Item(title=title, url=url, source="Alpha Vantage (weekly)"))
+        time.sleep(12)  # free tier é bem limitado; evita 429
+
+    return out
