@@ -29,8 +29,8 @@ pubmed_queries:
     query: 'veterinary[Title/Abstract] AND (diagnostic OR diagnostics OR PCR OR serology OR "point-of-care")'
 
 limits:
-  max_items_total: 60
-  max_items_for_gemini: 12
+  max_items_total: 25
+  max_items_for_gemini: 15
 ai:
   enabled: false
   model: gemini-2.0-flash
