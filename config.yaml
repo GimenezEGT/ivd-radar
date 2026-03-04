@@ -1,0 +1,33 @@
+keywords:
+  - in vitro diagnostic
+  - IVD
+  - companion diagnostic
+  - point-of-care
+  - PCR
+  - molecular diagnostics
+  - veterinary diagnostics
+  - zoonotic
+  - Anvisa
+  - FDA
+
+rss_sources:
+  - name: GenomeWeb
+    url: https://www.genomeweb.com/rss-feeds
+  - name: FierceBiotech
+    url: https://www.fiercebiotech.com/fiercebiotechcom/rss-feeds
+  - name: The Scientist
+    url: https://www.the-scientist.com/rss
+  - name: AVMA
+    url: https://www.avma.org/news/rss-feeds
+  - name: JVDI (SAGE)
+    url: https://journals.sagepub.com/connected/vdi
+
+pubmed_queries:
+  - name: Human IVD / performance
+    query: '"in vitro diagnostic"[Title/Abstract] OR IVD OR "companion diagnostic" OR "point-of-care"'
+  - name: Veterinary diagnostics
+    query: 'veterinary[Title/Abstract] AND (diagnostic OR diagnostics OR PCR OR serology OR "point-of-care")'
+
+limits:
+  max_items_total: 60
+  max_items_for_gemini: 25
