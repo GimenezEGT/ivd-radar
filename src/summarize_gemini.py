@@ -1,19 +1,35 @@
 from __future__ import annotations
 from typing import List, Tuple
-from google import genai
-from google.genai.errors import ClientError
 from .sources import Item
 
 def fallback_summary(items_scored: List[Tuple[Item, int]]) -> str:
-    # Resumo sem IA: Top títulos agrupados “na raça”
     top = items_scored[:10]
-    lines = ["<b>Resumo (fallback, sem Gemini)</b>"]
+    lines = ["<b>Resumo semanal (sem IA)</b>"]
     for it, sc in top:
         lines.append(f"• ({sc}) {it.title} — <i>{it.source}</i>")
-    lines.append("\n<i>Obs.: o Gemini estava sem quota/limitado nesta execução.</i>")
+    lines.append("\n<i>Obs.: modo sem IA está ativado.</i>")
     return "\n".join(lines)
 
-def summarize_week(items_scored: List[Tuple[Item, int]], api_key: str, model: str = "gemini-2.0-flash") -> str:
+def summarize_week(
+    items_scored: List[Tuple[Item, int]],
+    ai_enabled: bool,
+    api_key: str | None = None,
+    model: str = "gemini-2.0-flash",
+) -> str:
+    # IA desligada: volta o fallback imediatamente
+    if not ai_enabled:
+        return fallback_summary(items_scored)
+
+    # IA ligada: importa e usa Gemini só quando necessário
+    try:
+        from google import genai
+        from google.genai.errors import ClientError
+    except Exception:
+        return fallback_summary(items_scored)
+
+    if not api_key:
+        return fallback_summary(items_scored)
+
     client = genai.Client(api_key=api_key)
 
     lines = []
@@ -35,9 +51,8 @@ NOTÍCIAS (título | fonte | link):
 
     try:
         resp = client.models.generate_content(model=model, contents=prompt)
-        return resp.text or fallback_summary(items_scored)
-    except ClientError as e:
-        # 429 = quota/rate limit
-        if getattr(e, "status_code", None) == 429 or "429" in str(e):
-            return fallback_summary(items_scored)
-        raise
+        return (resp.text or "").strip() or fallback_summary(items_scored)
+    except ClientError:
+        return fallback_summary(items_scored)
+    except Exception:
+        return fallback_summary(items_scored)

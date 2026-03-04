@@ -31,3 +31,6 @@ pubmed_queries:
 limits:
   max_items_total: 60
   max_items_for_gemini: 12
+ai:
+  enabled: false
+  model: gemini-2.0-flash
