@@ -2,6 +2,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import List, Optional
+import os
+import time
 import feedparser
 import requests
 from dateutil import parser as dtparser
@@ -41,9 +43,43 @@ def collect_rss(rss_urls: List[dict]) -> List[Item]:
             items.append(Item(title=title, url=link, source=src["name"], published=published, summary=summary))
     return items
 
-def pubmed_esearch(term: str, days: int = 7, retmax: int = 40) -> List[str]:
-    # ESearch: busca PMIDs recentes.
+def _ncbi_params(extra: dict) -> dict:
+    """
+    NCBI recomenda incluir tool + email. API key é opcional e aumenta limites.
+    """
     params = {
+        "tool": "ivd-radar",
+        "email": os.environ.get("NCBI_EMAIL", "example@example.com"),
+    }
+    api_key = os.environ.get("NCBI_API_KEY")
+    if api_key:
+        params["api_key"] = api_key
+    params.update(extra)
+    return params
+
+def _get_with_retry(url: str, params: dict, timeout: int = 30, max_tries: int = 5) -> requests.Response:
+    """
+    Retry com backoff para 429/5xx.
+    """
+    delay = 1.0
+    last_exc = None
+    for _ in range(max_tries):
+        try:
+            r = requests.get(url, params=params, timeout=timeout)
+            if r.status_code == 429 or 500 <= r.status_code <= 599:
+                time.sleep(delay)
+                delay = min(delay * 2, 16)
+                continue
+            r.raise_for_status()
+            return r
+        except Exception as e:
+            last_exc = e
+            time.sleep(delay)
+            delay = min(delay * 2, 16)
+    raise last_exc  # type: ignore[misc]
+
+def pubmed_esearch(term: str, days: int = 7, retmax: int = 25) -> List[str]:
+    params = _ncbi_params({
         "db": "pubmed",
         "term": term,
         "retmax": str(retmax),
@@ -51,36 +87,48 @@ def pubmed_esearch(term: str, days: int = 7, retmax: int = 40) -> List[str]:
         "retmode": "json",
         "reldate": str(days),
         "datetype": "pdat",
-    }
-    r = requests.get(f"{NCBI_EUTILS}/esearch.fcgi", params=params, timeout=30)
-    r.raise_for_status()
+    })
+    r = _get_with_retry(f"{NCBI_EUTILS}/esearch.fcgi", params=params)
     data = r.json()
     return data.get("esearchresult", {}).get("idlist", [])
 
-def pubmed_esummary(pmids: List[str]) -> List[Item]:
+def pubmed_esummary(pmids: List[str], batch_size: int = 10) -> List["Item"]:
     if not pmids:
         return []
-    params = {"db": "pubmed", "id": ",".join(pmids), "retmode": "json"}
-    r = requests.get(f"{NCBI_EUTILS}/esummary.fcgi", params=params, timeout=30)
-    r.raise_for_status()
-    data = r.json()
-    result = data.get("result", {})
+
     items: List[Item] = []
-    for pmid in pmids:
-        rec = result.get(pmid)
-        if not rec:
-            continue
-        title = (rec.get("title") or "").strip().rstrip(".")
-        # Link direto para PubMed
-        url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
-        pubdate = _parse_date(rec.get("pubdate"))
-        source = rec.get("source") or "PubMed"
-        items.append(Item(title=title, url=url, source=f"PubMed: {source}", published=pubdate))
+
+    # NCBI prefere chamadas menores (evita 429 em runners compartilhados)
+    for i in range(0, len(pmids), batch_size):
+        batch = pmids[i:i + batch_size]
+        params = _ncbi_params({
+            "db": "pubmed",
+            "id": ",".join(batch),
+            "retmode": "json",
+        })
+
+        r = _get_with_retry(f"{NCBI_EUTILS}/esummary.fcgi", params=params)
+        data = r.json()
+        result = data.get("result", {})
+
+        for pmid in batch:
+            rec = result.get(pmid)
+            if not rec:
+                continue
+            title = (rec.get("title") or "").strip().rstrip(".")
+            url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+            pubdate = _parse_date(rec.get("pubdate"))
+            source = rec.get("source") or "PubMed"
+            items.append(Item(title=title, url=url, source=f"PubMed: {source}", published=pubdate))
+
+        # pequeno delay para respeitar rate-limit (especialmente sem API key)
+        time.sleep(0.34 if os.environ.get("NCBI_API_KEY") else 0.7)
+
     return items
 
-def collect_pubmed(queries: List[dict], days: int = 7) -> List[Item]:
-    all_items: List[Item] = []
+def collect_pubmed(queries: List[dict], days: int = 7) -> List["Item"]:
+    all_items: List["Item"] = []
     for q in queries:
-        pmids = pubmed_esearch(q["query"], days=days, retmax=40)
-        all_items.extend(pubmed_esummary(pmids))
+        pmids = pubmed_esearch(q["query"], days=days, retmax=25)
+        all_items.extend(pubmed_esummary(pmids, batch_size=10))
     return all_items
