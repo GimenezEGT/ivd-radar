@@ -28,6 +28,44 @@ pubmed_queries:
   - name: Veterinary diagnostics
     query: 'veterinary[Title/Abstract] AND (diagnostic OR diagnostics OR PCR OR serology OR "point-of-care")'
 
+news_queries:
+  # Brasil (pt-BR)
+  - name: Brasil IVD
+    q: '(diagnóstico OR IVD OR "teste rápido" OR PCR OR "diagnóstico molecular") (Anvisa OR laboratório OR "in vitro")'
+    hl: pt-BR
+    gl: BR
+    ceid: BR:pt-419
+
+  - name: Brasil Veterinário
+    q: '(diagnóstico veterinário OR zoonose OR "teste rápido" OR PCR) (laboratório OR vigilância)'
+    hl: pt-BR
+    gl: BR
+    ceid: BR:pt-419
+
+  # Global (en)
+  - name: Global IVD
+    q: '(in vitro diagnostic OR IVD OR "companion diagnostic" OR "point-of-care" OR PCR) (FDA OR CE-IVD OR IVDR OR "clinical performance")'
+    hl: en-US
+    gl: US
+    ceid: US:en
+
+  - name: Global Veterinary
+    q: '(veterinary diagnostics OR zoonotic OR "point-of-care" OR PCR) (IDEXX OR Zoetis OR "veterinary lab")'
+    hl: en-US
+    gl: US
+    ceid: US:en
+
+stocks:
+  enabled: false
+  provider: alphavantage
+  symbols:
+    # humano (exemplos)
+    - IDXX   # IDEXX (vet forte)
+    - ZTS    # Zoetis (vet)
+    - DGX    # Quest Diagnostics
+    - LH     # Labcorp
+    - TMO    # Thermo Fisher
+
 limits:
   max_items_total: 25
   max_items_for_gemini: 15
