@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import yaml
+from datetime import datetime, timedelta, timezone
 
 from .sources import (
     collect_rss,
@@ -13,6 +14,13 @@ from .dedupe import dedupe, rank, pick_top_diverse
 from .summarize_gemini import summarize_week
 from .telegram_send import send_message
 
+def filter_recent(items, days: int = 7):
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    filtered = []
+    for it in items:
+        if it.published and it.published >= cutoff:
+            filtered.append(it)
+    return filtered
 
 def main():
     with open("config.yaml", "r", encoding="utf-8") as f:
@@ -46,6 +54,10 @@ def main():
 
     # Junta tudo e deduplica
     all_items = rss_items + news_items + pubmed_items + stock_items
+
+    # filtra apenas itens dos últimos 7 dias
+    all_items = filter_recent(all_items, days=7)
+
     all_items = dedupe(all_items)
 
     # Rank global
