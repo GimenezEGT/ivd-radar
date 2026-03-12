@@ -1,0 +1,175 @@
+br:
+  - name: BR Macro-Ecossistemas e Governança
+    q: '("ecossistema de saúde" OR "plataforma de saúde" OR "sistema de saúde" OR "infraestrutura de saúde" OR "governança em saúde" OR "modelo assistencial")'
+
+  - name: BR Atenção Hospitalar
+    q: '("hospital" OR "hospital geral" OR "hospital universitário" OR "hospital privado" OR "hospital público" OR "rede hospitalar" OR "setor hospitalar" OR "sistema hospitalar")'
+
+  - name: BR Atenção Ambulatorial e Primária
+    q: '("clínica médica" OR "clínica especializada" OR "clínica popular" OR "centro de saúde" OR "policlínica" OR "unidade básica de saúde" OR "UBS")'
+
+  - name: BR Urgência e Emergência
+    q: '("pronto atendimento" OR "pronto socorro" OR "unidade de emergência" OR "hospital de campanha")'
+
+  - name: BR Telemedicina e Saúde Digital
+    q: '("saúde digital" OR "telemedicina" OR "teleconsulta" OR "telemonitoramento" OR "teleassistência" OR "hospital digital" OR "monitoramento remoto")'
+
+  - name: BR Corpo Clínico Médico
+    q: '("médico" OR "médico especialista" OR "médico generalista" OR "medicina interna" OR "medicina de família" OR "medicina preventiva")'
+
+  - name: BR Equipe Multidisciplinar
+    q: '("enfermeiro" OR "técnico de enfermagem" OR "biomédico" OR "farmacêutico" OR "dentista" OR "psicólogo" OR "nutricionista" OR "fisioterapeuta" OR "fonoaudiólogo")'
+
+  - name: BR Especialidades Clínicas
+    q: '("cardiologia" OR "neurologia" OR "pediatria" OR "ginecologia" OR "obstetrícia" OR "dermatologia" OR "endocrinologia" OR "gastroenterologia" OR "hepatologia" OR "nefrologia" OR "urologia" OR "pneumologia" OR "reumatologia" OR "geriatria")'
+
+  - name: BR Especialidades Cirúrgicas
+    q: '("cirurgia geral" OR "cirurgia plástica" OR "cirurgia cardiovascular" OR "cirurgia oncológica" OR "anestesiologia" OR "centro cirúrgico")'
+
+  - name: BR Oncologia e Neoplasias
+    q: '("oncologia" OR "câncer" OR "tumor" OR "neoplasia")'
+
+  - name: BR Doenças Crônicas e Metabólicas
+    q: '("doença crônica" OR "diabetes" OR "hipertensão" OR "obesidade" OR "insuficiência cardíaca" OR "AVC" OR "infarto" OR "asma" OR "DPOC" OR "insuficiência renal")'
+
+  - name: BR Doenças Infecciosas
+    q: '("doença infecciosa" OR "hepatite" OR "HIV" OR "AIDS" OR "tuberculose" OR "dengue" OR "zika" OR "covid" OR "influenza" OR "septicemia")'
+
+  - name: BR Saúde Mental e Neurodegenerativas
+    q: '("transtorno mental" OR "depressão" OR "ansiedade" OR "doença neurodegenerativa")'
+
+  - name: BR Diagnóstico por Imagem
+    q: '("exame de imagem" OR "raio X" OR "ultrassom" OR "tomografia" OR "ressonância magnética" OR "PET scan" OR "endoscopia" OR "colonoscopia")'
+
+  - name: BR Diagnóstico Laboratorial
+    q: '("laboratório clínico" OR "exame laboratorial" OR "análise clínica" OR "teste diagnóstico" OR "hemograma" OR "citologia" OR "biópsia" OR "triagem")'
+
+  - name: BR Genômica e Diagnóstico Molecular
+    q: '("diagnóstico molecular" OR "teste molecular" OR "PCR" OR "RT-PCR" OR "sequenciamento genético" OR "painel genético" OR "biomarcador")'
+
+  - name: BR Terapias Avançadas
+    q: '("terapia gênica" OR "terapia celular" OR "terapia imunológica" OR "imunoterapia" OR "terapia alvo" OR "terapia regenerativa" OR "medicina personalizada" OR "medicina de precisão")'
+
+  - name: BR Reabilitação e Cuidados Paliativos
+    q: '("reabilitação" OR "fisioterapia" OR "terapia ocupacional" OR "tratamento paliativo" OR "cuidados paliativos")'
+
+  - name: BR Farmacêutica Tradicional
+    q: '("medicamento" OR "fármaco" OR "droga terapêutica" OR "medicamento genérico" OR "antibiótico" OR "antiviral" OR "anti-inflamatório" OR "analgésico" OR "farmacologia")'
+
+  - name: BR Biofármacos e Vacinas
+    q: '("medicamento biológico" OR "medicamento biossimilar" OR "vacina" OR "imunizante" OR "biofármaco" OR "bioprodução")'
+
+  - name: BR Pesquisa Clínica e Biomédica
+    q: '("pesquisa clínica" OR "ensaio clínico" OR "pesquisa biomédica" OR "medicina translacional" OR "cultura celular" OR "células-tronco" OR "biobanco" OR "pipeline farmacêutico")'
+
+  - name: BR Dispositivos e Implantes (MedTech)
+    q: '("dispositivo médico" OR "equipamento médico" OR "tecnologia médica" OR "instrumento cirúrgico" OR "marcapasso" OR "stent" OR "prótese" OR "implante" OR "ventilador pulmonar")'
+
+  - name: BR Inteligência Artificial e Analytics
+    q: '("inteligência artificial médica" OR "IA em saúde" OR "machine learning médico" OR "analytics em saúde" OR "big data em saúde" OR "bioinformática")'
+
+  - name: BR Gestão de Dados em Saúde
+    q: '("prontuário eletrônico" OR "EHR" OR "EMR" OR "interoperabilidade em saúde" OR "dados de saúde")'
+
+  - name: BR Pagadores e Planos de Saúde
+    q: '("operadora de saúde" OR "plano de saúde" OR "seguro saúde" OR "rede credenciada" OR "beneficiário" OR "sinistralidade")'
+
+  - name: BR Modelos de Remuneração e Gestão
+    q: '("gestão hospitalar" OR "economia da saúde" OR "financiamento da saúde" OR "value-based care" OR "capitation" OR "pagamento por serviço" OR "gestão populacional")'
+
+  - name: BR Fusões, Aquisições e Mercado (M&A)
+    q: '("holding de saúde" OR "consolidação do setor" OR "fusão de empresas de saúde" OR "aquisição de hospital" OR "parceria estratégica em saúde" OR "joint venture em saúde" OR "spin-off de saúde" OR "verticalização da saúde")'
+
+  - name: BR Regulação e Compliance
+    q: '("regulação sanitária" OR "agência reguladora" OR "ANVISA" OR "vigilância sanitária" OR "farmacovigilância" OR "registro sanitário" OR "compliance em saúde")'
+
+  - name: BR Epidemiologia e Saúde Pública
+    q: '("saúde pública" OR "epidemiologia" OR "vigilância epidemiológica" OR "pandemia" OR "endemia" OR "controle de doenças" OR "cobertura vacinal" OR "mortalidade" OR "morbidade")'
+
+global:
+  - name: Global Macro-Ecosystems & Governance
+    q: '("healthcare ecosystem" OR "health platform" OR "healthcare system" OR "health infrastructure" OR "clinical governance" OR "care model")'
+
+  - name: Global Hospital Care
+    q: '("hospital" OR "general hospital" OR "university hospital" OR "private hospital" OR "public hospital" OR "hospital network" OR "hospital sector")'
+
+  - name: Global Ambulatory & Primary Care
+    q: '("medical clinic" OR "specialized clinic" OR "health center" OR "polyclinic" OR "primary care unit" OR "outpatient clinic")'
+
+  - name: Global Urgency & Emergency
+    q: '("urgent care" OR "emergency room" OR "ER" OR "emergency unit" OR "field hospital")'
+
+  - name: Global Telemedicine & Digital Health
+    q: '("digital health" OR "telemedicine" OR "teleconsultation" OR "telemonitoring" OR "telecare" OR "digital hospital" OR "remote patient monitoring")'
+
+  - name: Global Medical Clinical Staff
+    q: '("physician" OR "medical specialist" OR "general practitioner" OR "internal medicine" OR "family medicine" OR "preventive medicine")'
+
+  - name: Global Multidisciplinary Team
+    q: '("nurse" OR "nursing technician" OR "biomedical scientist" OR "pharmacist" OR "dentist" OR "psychologist" OR "nutritionist" OR "physiotherapist" OR "speech therapist")'
+
+  - name: Global Clinical Specialties
+    q: '("cardiology" OR "neurology" OR "pediatrics" OR "gynecology" OR "obstetrics" OR "dermatology" OR "endocrinology" OR "gastroenterology" OR "hepatology" OR "nephrology" OR "urology" OR "pulmonology" OR "rheumatology" OR "geriatrics")'
+
+  - name: Global Surgical Specialties
+    q: '("general surgery" OR "plastic surgery" OR "cardiovascular surgery" OR "oncological surgery" OR "anesthesiology" OR "surgical center")'
+
+  - name: Global Oncology & Neoplasms
+    q: '("oncology" OR "cancer" OR "tumor" OR "neoplasm")'
+
+  - name: Global Chronic & Metabolic Diseases
+    q: '("chronic disease" OR "diabetes" OR "hypertension" OR "obesity" OR "heart failure" OR "stroke" OR "heart attack" OR "asthma" OR "COPD" OR "kidney failure")'
+
+  - name: Global Infectious Diseases
+    q: '("infectious disease" OR "hepatitis" OR "HIV" OR "AIDS" OR "tuberculosis" OR "dengue" OR "zika" OR "covid" OR "influenza" OR "sepsis")'
+
+  - name: Global Mental Health & Neurodegenerative
+    q: '("mental disorder" OR "depression" OR "anxiety" OR "neurodegenerative disease")'
+
+  - name: Global Diagnostic Imaging
+    q: '("imaging test" OR "X-ray" OR "ultrasound" OR "CT scan" OR "MRI" OR "PET scan" OR "endoscopy" OR "colonoscopy")'
+
+  - name: Global Laboratory Diagnostics
+    q: '("clinical laboratory" OR "lab test" OR "clinical analysis" OR "diagnostic test" OR "blood count" OR "cytology" OR "biopsy" OR "screening")'
+
+  - name: Global Genomics & Molecular Diagnostics
+    q: '("molecular diagnostics" OR "molecular test" OR "PCR" OR "RT-PCR" OR "genetic sequencing" OR "gene panel" OR "biomarker")'
+
+  - name: Global Advanced Therapies
+    q: '("gene therapy" OR "cell therapy" OR "immunological therapy" OR "immunotherapy" OR "targeted therapy" OR "regenerative therapy" OR "personalized medicine" OR "precision medicine")'
+
+  - name: Global Rehabilitation & Palliative Care
+    q: '("rehabilitation" OR "physiotherapy" OR "occupational therapy" OR "palliative treatment" OR "palliative care")'
+
+  - name: Global Traditional Pharmaceuticals
+    q: '("medication" OR "drug" OR "therapeutic drug" OR "generic drug" OR "antibiotic" OR "antiviral" OR "anti-inflammatory" OR "analgesic" OR "pharmacology")'
+
+  - name: Global Biopharma & Vaccines
+    q: '("biologic drug" OR "biosimilar" OR "vaccine" OR "immunizer" OR "biopharmaceutical" OR "bioproduction")'
+
+  - name: Global Clinical & Biomedical Research
+    q: '("clinical research" OR "clinical trial" OR "biomedical research" OR "translational medicine" OR "cell culture" OR "stem cells" OR "biobank" OR "pharma pipeline")'
+
+  - name: Global Devices & Implants (MedTech)
+    q: '("medical device" OR "medical equipment" OR "medical technology" OR "surgical instrument" OR "pacemaker" OR "stent" OR "prosthesis" OR "implant" OR "ventilator")'
+
+  - name: Global AI & Analytics
+    q: '("medical artificial intelligence" OR "healthcare AI" OR "medical machine learning" OR "healthcare analytics" OR "healthcare big data" OR "bioinformatics")'
+
+  - name: Global Health Data Management
+    q: '("electronic health record" OR "EHR" OR "EMR" OR "healthcare interoperability" OR "health data")'
+
+  - name: Global Payers & Health Plans
+    q: '("health insurer" OR "health plan" OR "health insurance" OR "provider network" OR "beneficiary" OR "loss ratio")'
+
+  - name: Global Remuneration Models & Management
+    q: '("hospital management" OR "health economics" OR "healthcare financing" OR "value-based care" OR "capitation" OR "fee-for-service" OR "population health management")'
+
+  - name: Global Mergers, Acquisitions & Market (M&A)
+    q: '("healthcare holding" OR "industry consolidation" OR "healthcare merger" OR "hospital acquisition" OR "healthcare strategic partnership" OR "healthcare joint venture" OR "healthcare spin-off" OR "healthcare vertical integration")'
+
+  - name: Global Regulation & Compliance
+    q: '("health regulation" OR "regulatory agency" OR "FDA" OR "EMA" OR "sanitary surveillance" OR "pharmacovigilance" OR "health compliance")'
+
+  - name: Global Epidemiology & Public Health
+    q: '("public health" OR "epidemiology" OR "epidemiological surveillance" OR "pandemic" OR "endemic" OR "disease control" OR "vaccination coverage" OR "mortality" OR "morbidity")'
