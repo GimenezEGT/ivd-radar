@@ -1,0 +1,333 @@
+saúde
+saúde pública
+sistema de saúde
+serviços de saúde
+assistência médica
+assistência à saúde
+atenção à saúde
+cuidados de saúde
+rede de saúde
+ecossistema de saúde
+plataforma de saúde
+setor hospitalar
+setor médico
+sistema hospitalar
+infraestrutura de saúde
+prestadores de saúde
+organização de saúde
+provedor de saúde
+modelo assistencial
+governança em saúde
+hospital
+hospital geral
+hospital universitário
+hospital privado
+hospital público
+hospital especializado
+clínica médica
+clínica especializada
+clínica popular
+centro médico
+centro de saúde
+policlínica
+pronto atendimento
+pronto socorro
+unidade de emergência
+unidade básica de saúde
+UBS
+laboratório clínico
+laboratório de análises clínicas
+centro diagnóstico
+centro cirúrgico
+rede hospitalar
+rede de clínicas
+rede de laboratórios
+sistema hospitalar integrado
+hospital inteligente
+hospital virtual
+hospital de campanha
+centro de especialidades
+médico
+enfermeiro
+técnico de enfermagem
+biomédico
+farmacêutico
+bioquímico
+dentista
+psicólogo
+nutricionista
+fisioterapeuta
+terapeuta ocupacional
+fonoaudiólogo
+médico especialista
+médico generalista
+epidemiologista
+sanitarista
+pesquisador clínico
+cientista biomédico
+profissional de saúde
+gestor hospitalar
+cardiologia
+oncologia
+neurologia
+pediatria
+ginecologia
+obstetrícia
+dermatologia
+endocrinologia
+gastroenterologia
+hepatologia
+nefrologia
+urologia
+hematologia
+imunologia
+infectologia
+pneumologia
+reumatologia
+geriatria
+medicina interna
+medicina de família
+medicina preventiva
+medicina intensiva
+medicina esportiva
+medicina nuclear
+radiologia
+anestesiologia
+cirurgia geral
+cirurgia plástica
+cirurgia cardiovascular
+cirurgia oncológica
+doença infecciosa
+doença crônica
+doença rara
+doença genética
+doença autoimune
+câncer
+tumor
+neoplasia
+diabetes
+hipertensão
+obesidade
+insuficiência cardíaca
+AVC
+infarto
+asma
+DPOC
+hepatite
+HIV
+AIDS
+tuberculose
+dengue
+zika
+covid
+influenza
+septicemia
+insuficiência renal
+transtorno mental
+depressão
+ansiedade
+doença neurodegenerativa
+diagnóstico médico
+diagnóstico clínico
+diagnóstico molecular
+exame clínico
+exame laboratorial
+análise clínica
+teste diagnóstico
+teste rápido
+teste molecular
+PCR
+RT-PCR
+sequenciamento genético
+biomarcador
+biópsia
+citologia
+hemograma
+painel genético
+exame de imagem
+raio X
+ultrassom
+tomografia
+ressonância magnética
+PET scan
+endoscopia
+colonoscopia
+triagem
+screening
+monitoramento clínico
+avaliação diagnóstica
+tratamento médico
+tratamento clínico
+tratamento cirúrgico
+terapia medicamentosa
+terapia intensiva
+terapia gênica
+terapia celular
+terapia imunológica
+imunoterapia
+quimioterapia
+radioterapia
+terapia alvo
+terapia hormonal
+terapia regenerativa
+medicina personalizada
+medicina de precisão
+tratamento experimental
+tratamento inovador
+tratamento ambulatorial
+tratamento hospitalar
+tratamento paliativo
+cuidados paliativos
+reabilitação
+fisioterapia
+terapia ocupacional
+medicamento
+fármaco
+droga terapêutica
+medicamento biológico
+medicamento biossimilar
+medicamento genérico
+vacina
+antibiótico
+antiviral
+anti-inflamatório
+analgésico
+imunizante
+produto farmacêutico
+formulação farmacêutica
+farmacologia
+farmacocinética
+pipeline farmacêutico
+biotecnologia
+biotecnologia médica
+biotecnologia animal
+engenharia genética
+edição genética
+CRISPR
+biologia molecular
+genômica
+proteômica
+metabolômica
+biologia sintética
+cultura celular
+células-tronco
+biomaterial
+biofármaco
+bioprodução
+bioinformática
+biobanco
+sequenciamento genômico
+diagnóstico genético
+medicina translacional
+pesquisa biomédica
+pesquisa clínica
+ensaio clínico
+plataforma biotecnológica
+dispositivo médico
+equipamento médico
+tecnologia médica
+medtech
+instrumento cirúrgico
+equipamento hospitalar
+monitor multiparamétrico
+ventilador pulmonar
+marcapasso
+stent
+prótese
+implante
+dispositivo diagnóstico
+wearable de saúde
+sensor biomédico
+equipamento de imagem
+robô cirúrgico
+inteligência artificial médica
+analytics em saúde
+healthcare analytics
+saúde digital
+eHealth
+mHealth
+telemedicina
+teleconsulta
+telemonitoramento
+teleassistência
+hospital digital
+prontuário eletrônico
+EHR
+EMR
+interoperabilidade em saúde
+health information exchange
+dados de saúde
+big data em saúde
+IA em saúde
+machine learning médico
+plataforma digital de saúde
+monitoramento remoto
+connected health
+operadora de saúde
+plano de saúde
+seguro saúde
+rede credenciada
+beneficiário
+sinistralidade
+gestão hospitalar
+administração hospitalar
+economia da saúde
+financiamento da saúde
+reembolso médico
+pagamento por serviço
+value-based care
+capitation
+custo assistencial
+gestão de pacientes
+gestão populacional
+verticalização da saúde
+integração de serviços
+rede integrada de saúde
+sistema integrado de saúde
+holding de saúde
+consolidação do setor
+fusão de empresas de saúde
+aquisição de hospital
+parceria estratégica em saúde
+joint venture em saúde
+spin-off de saúde
+regulação sanitária
+agência reguladora
+autoridade sanitária
+registro sanitário
+aprovação regulatória
+ANVISA
+FDA
+EMA
+OMS
+MAPA
+vigilância sanitária
+farmacovigilância
+segurança do paciente
+compliance em saúde
+boas práticas clínicas
+boas práticas de fabricação
+ensaio clínico regulatório
+aprovação de medicamento
+registro de dispositivo médico
+política de saúde
+epidemiologia
+vigilância epidemiológica
+surto epidemiológico
+pandemia
+endemia
+controle de doenças
+prevenção de doenças
+promoção da saúde
+programa de vacinação
+cobertura vacinal
+saúde coletiva
+determinantes sociais da saúde
+saúde ambiental
+segurança alimentar
+monitoramento epidemiológico
+controle sanitário
+indicadores de saúde
+mortalidade
+morbidade
+carga de doença
