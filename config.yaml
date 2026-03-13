@@ -102,3 +102,22 @@ watchlist:
     - BD
     - IDEXX
     - Zoetis
+
+market_news:
+  enabled: true
+  days: 7
+  keywords_file: data/news_market_keywords.txt
+  queries_file: data/news_market_queries.yaml
+
+  # filtro anti-ciência para NOTÍCIAS (não afeta PubMed)
+  exclude_if_contains:
+    - randomized
+    - meta-analysis
+    - preprint
+    - in vitro study
+    - in vivo
+    - mouse model
+    - genome-wide
+    - proteomics
+    - transcriptomics
+    - sequencing
