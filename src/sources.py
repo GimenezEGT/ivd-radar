@@ -134,16 +134,23 @@ def collect_pubmed(queries: List[dict], days: int = 7) -> List["Item"]:
         all_items.extend(pubmed_esummary(pmids, batch_size=10))
     return all_items
 
-def collect_google_news_rss(news_queries: List[dict]) -> List[Item]:
+def collect_google_news_rss(news_queries: List[dict], days: int = 7) -> List[Item]:
     """
-    Coleta notícias via Google News RSS Search.
-    Exemplo de formato: https://news.google.com/rss/search?q=<query>&hl=pt-BR&gl=BR&ceid=BR:pt-419
+    Coleta notícias via Google News RSS Search e força janela (when:Xd).
     """
     items: List[Item] = []
     base = "https://news.google.com/rss/search?q="
 
     for nq in news_queries:
-        q = quote_plus(nq["q"])
+        q_raw = (nq.get("q") or "").strip()
+        if not q_raw:
+            continue
+
+        # força janela de tempo (reduz muito notícias antigas)
+        if days and f"when:{days}d" not in q_raw:
+            q_raw = f"({q_raw}) when:{days}d"
+
+        q = quote_plus(q_raw)
         hl = nq.get("hl", "pt-BR")
         gl = nq.get("gl", "BR")
         ceid = nq.get("ceid", "BR:pt-419")
@@ -164,6 +171,7 @@ def collect_google_news_rss(news_queries: List[dict]) -> List[Item]:
                 published=published,
                 summary=summary,
             ))
+
     return items
 
 def collect_stocks_weekly(symbols: List[str]) -> List[Item]:
